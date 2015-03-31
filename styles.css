@@ -1,5 +1,6 @@
 body, html{
   height:100%;
+  width:100%;
 }
 body{
   margin: 0px;
@@ -24,4 +25,8 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+
+.raver {
+  border:0px;
 }
