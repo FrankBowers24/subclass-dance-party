@@ -7,7 +7,7 @@ var makeRaverDancer = function(top, left, timeBetweenSteps){
   this._centerX = $("body").width() / 2;
   this._centerY = $("body").height() / 2;
 
-    this.$node = $('<img class="dancer raver" src="http://gifdanceparty.giphy.com/img/littleraver.gif"></img>');
+  this.$node = $('<img class="dancer raver" src="http://gifdanceparty.giphy.com/img/littleraver.gif"></img>');
 
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function

@@ -1,6 +1,6 @@
-var makeRainbowDancer = function(top, left, timeBetweenSteps){
-  this._timeBetweenSteps = timeBetweenSteps;
-  makeDancer.call(this, top, left, timeBetweenSteps);
+var makeRainbowDancer = function(top, left){
+  this._timeBetweenSteps = 100;
+  makeDancer.call(this, top, left, this._timeBetweenSteps );
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
   this._hue = 0;
@@ -16,10 +16,9 @@ makeRainbowDancer.prototype.step = function(){
   // toggle() is a jQuery method to show/hide the <span> tag.
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
+  //
+  var color = "hsl(" + this._hue + ", 100%, 50%)";
+  this.$node.css('border-color', color);
 
-  $node.css('border-color', hsl(hue, "100%","100%"));
-
-  hue = (hue + 1) % 360;
-
-  this.$node.css(styleSettings);
+  this._hue = (this._hue + 5) % 360;
 };
