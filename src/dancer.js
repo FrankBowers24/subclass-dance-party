@@ -36,4 +36,26 @@ Dancer.prototype.lineUp = function(x, y) {
   this._pause = !this._pause;
   this._x = x;
   this._y = y;
-}
+};
+
+Dancer.prototype.sayHello = function() {
+  var $body = $('body');
+  var $greeting = $("<p class='speech'>Hello!</p>");
+  var styleSettings = {
+    top: this._y - 5,
+    left: this._x + 5
+  };
+
+  var fadeSetting = {
+    opacity: 0,
+    top: this._y - 100,
+    left: this._x + 5
+  };
+
+  $greeting.css(styleSettings);
+  $body.append($greeting);
+
+
+  $greeting.animate(fadeSetting, 4000);
+  setTimeout(function() { $greeting.remove();} , 4100);
+};

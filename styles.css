@@ -39,3 +39,7 @@ body, a:link, a:visited, a:active{
 .roaming {
   border:10px solid purple;
 }
+
+.speech {
+  position:absolute;
+}

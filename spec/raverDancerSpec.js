@@ -13,7 +13,7 @@ describe("RaverDancer", function() {
     expect(raverDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it("should have a step function that does not adjust the raver position if the dancer are told to line up", function() {
+  it("step function should only update the dancer if not line up", function() {
     sinon.spy(raverDancer.$node, 'toggle');
     raverDancer.lineUp(0,0); //tell the raver to line up
     var old_x = raverDancer._x;
@@ -22,6 +22,9 @@ describe("RaverDancer", function() {
     expect(raverDancer._x).to.be.equal(old_x);
     expect(raverDancer._y).to.be.equal(old_y);
     raverDancer.lineUp(0,0);
+    raverDancer.step();
+    expect(raverDancer._x).to.not.equal(old_x);
+    expect(raverDancer._y).to.not.equal(old_y);
   });
 
   describe("dance", function(){

@@ -30,6 +30,7 @@ $(document).ready(function(){
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
   });
+
   $('.lineUpDancersButton').on("click", function(event){
     for (var i = 0; i < window.dancers.length; i++ ) {
       var dancer =  window.dancers[i];
@@ -37,6 +38,26 @@ $(document).ready(function(){
       var x = 50;
       dancer.lineUp(x, y);
     }
-  })
+  });
+
+  var reactToOthers = function () {
+    var xDistance = 0;
+    var yDistance = 0;
+    for(var q = 0; q < dancers.length; ++q) {
+      for(var a = 0; a < dancers.length; ++a) {
+        if(q !== a) {
+          xDistance = Math.abs(dancers[q]._x - dancers[a]._x);
+          yDistance = Math.abs(dancers[q]._y - dancers[a]._y);
+
+          if(xDistance < 40 && yDistance < 40) {
+            dancers[q].sayHello();
+            dancers[a].sayHello();
+          }
+        }
+      }
+    }
+  };
+
+  setInterval( reactToOthers, 500);
 });
 
