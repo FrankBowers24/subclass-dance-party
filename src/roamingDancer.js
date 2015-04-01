@@ -1,18 +1,18 @@
-var makeRoamingDancer = function (top, left, timeBetweenSteps){
-  this._timeBetweenSteps = timeBetweenSteps;
+var RoamingDancer = function (top, left, timeBetweenSteps){
   this._angle = Math.random() * 2 * Math.PI;
   this._speed = Math.random() * 20 + 5;
-  makeDancer.call(this, top, left, timeBetweenSteps);
+  Dancer.call(this, top, left, timeBetweenSteps);
+  this.$node.addClass("roaming");
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
 };
 
-makeRoamingDancer.prototype = Object.create(makeDancer.prototype);
-makeRoamingDancer.prototype.constuctor = makeRoamingDancer;
+RoamingDancer.prototype = Object.create(Dancer.prototype);
+RoamingDancer.prototype.constuctor = RoamingDancer;
 
-makeRoamingDancer.prototype.step = function () {
+RoamingDancer.prototype.step = function () {
 
-  makeDancer.prototype.step.call(this, this._timeBetweenSteps);
+  Dancer.prototype.step.call(this, this._timeBetweenSteps);
   if (!this._pause) {
 
       this._x = this._x + Math.cos(this._angle) * this._speed;

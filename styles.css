@@ -30,3 +30,12 @@ body, a:link, a:visited, a:active{
 .raver {
   border:0px;
 }
+
+.interactive {
+   border:10px solid green;
+   border-radius: 0px;
+}
+
+.roaming {
+  border:10px solid purple;
+}
